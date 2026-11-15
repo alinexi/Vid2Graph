@@ -8,13 +8,13 @@
 
 **Video → transcript → concepts → clickable graph.** Vid2Graph finds the ideas a speaker *explains* 🔵, the jargon they *drop without defining* 🟠, and the prerequisites they *assume you already know* 🟣, then links every node back to the exact second it was said.
 
-[![CI](https://img.shields.io/github/actions/workflow/status/your-username/vid2graph/ci.yml?branch=main&label=CI&logo=github)](https://github.com/your-username/vid2graph/actions)
+[![CI](https://img.shields.io/github/actions/workflow/status/alinexi/vid2graph/ci.yml?branch=main&label=CI&logo=github)](https://github.com/alinexi/vid2graph/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](backend/)
 [![Next.js 14](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](frontend/)
 [![Runs on Ollama](https://img.shields.io/badge/Runs%20on-Ollama%20%7C%20LM%20Studio%20%7C%20vLLM-orange)](#%EF%B8%8F-configuration)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![GitHub stars](https://img.shields.io/github/stars/your-username/vid2graph?style=social)](https://github.com/your-username/vid2graph/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/alinexi/vid2graph?style=social)](https://github.com/alinexi/vid2graph/stargazers)
 
 [**Quickstart**](#-quickstart) · [Screenshots](#-see-it-in-action) · [Features](#-features) · [Examples](#-examples) · [How it works](#-how-it-works) · [Configuration](#%EF%B8%8F-configuration) · [API](#-api) · [Contributing](#-contributing--feedback)
 
