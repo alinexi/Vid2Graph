@@ -82,7 +82,7 @@ Everything runs on your machine with a 7B model through [Ollama](https://ollama.
 ### Option A: Docker (one command)
 
 ```bash
-git clone https://github.com/your-username/vid2graph.git && cd vid2graph
+git clone https://github.com/alinexi/vid2graph.git && cd vid2graph
 ```
 ```bash
 cp .env.example .env
@@ -371,8 +371,8 @@ Want one of these sooner? Open an issue and say so, or upvote an existing one.
 
 **All contributions and feedback are welcome**, from a typo fix to a new Whisper backend. This project is intentionally small and readable, and it should stay that way.
 
-- 🐛 **Found a bug?** [Open a bug report](https://github.com/your-username/vid2graph/issues/new?template=bug_report.md) with the video type, model, and the job log.
-- 💡 **Have an idea?** [Request a feature](https://github.com/your-username/vid2graph/issues/new?template=feature_request.md). Prompt-tuning results for specific model families are especially valuable.
+- 🐛 **Found a bug?** [Open a bug report](https://github.com/alinexi/vid2graph/issues/new?template=bug_report.md) with the video type, model, and the job log.
+- 💡 **Have an idea?** [Request a feature](https://github.com/alinexi/vid2graph/issues/new?template=feature_request.md). Prompt-tuning results for specific model families are especially valuable.
 - 🛠 **Want to hack on it?** Read [CONTRIBUTING.md](CONTRIBUTING.md) for the dev setup and where things live. Good first issues: new export targets, more Whisper backends, UI polish.
 - 💬 **Just want to say what worked or didn't?** Open a discussion or an issue. Honest feedback on real videos shapes the roadmap.
 
