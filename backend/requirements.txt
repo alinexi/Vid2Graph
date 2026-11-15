@@ -1,0 +1,24 @@
+# ── Web ──────────────────────────────────────────────────────────────────────
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+pydantic>=2.7,<3
+pydantic-settings>=2.3
+
+# ── LLM orchestration ────────────────────────────────────────────────────────
+litellm>=1.50
+instructor>=1.4
+
+# ── Ingestion ────────────────────────────────────────────────────────────────
+yt-dlp>=2024.8.6
+# Local speech-to-text (optional at runtime, install for uncaptioned media):
+faster-whisper>=1.0.3
+
+# ── Tooling / tests ──────────────────────────────────────────────────────────
+httpx>=0.27
+pytest>=8
+numpy>=1.26
+
+# Optional extras — uncomment what you need:
+# sentence-transformers>=3.0     # local embeddings without Ollama
+# mlx-whisper>=0.4               # Apple-Silicon GPU transcription
