@@ -137,7 +137,7 @@ Set `VID2GRAPH_LLM_PROVIDER=mock` in `.env` (or pick **mock** in the settings mo
 No GPU or Ollama needed. Set the provider, model and key in `.env` (or in the settings modal, no restart):
 
 ```bash
-VID2GRAPH_LLM_PROVIDER=anthropic   # or openai | gemini | groq | openrouter
+VID2GRAPH_LLM_PROVIDER=anthropic   # or openai | gemini | groq | openrouter | deepseek
 VID2GRAPH_LLM_MODEL=claude-haiku-5-5
 VID2GRAPH_LLM_API_KEY=sk-ant-...
 ```
@@ -270,10 +270,10 @@ Copy `.env.example` to `.env`. All keys are prefixed `VID2GRAPH_` and can also b
 
 | Key | Default | Notes |
 |---|---|---|
-| `LLM_PROVIDER` | `ollama` | `ollama` · `lmstudio` · `vllm` · `openai` · `anthropic` · `gemini` · `groq` · `openrouter` · `openai_compatible` · `mock` |
+| `LLM_PROVIDER` | `ollama` | `ollama` · `lmstudio` · `vllm` · `openai` · `anthropic` · `gemini` · `groq` · `openrouter` · `deepseek` · `openai_compatible` · `mock` |
 | `LLM_MODEL` | `qwen2.5:7b` | Model name as the provider knows it |
 | `LLM_BASE_URL` | `http://localhost:11434` | LM Studio `http://localhost:1234/v1`, vLLM `http://localhost:8000/v1` |
-| `LLM_API_KEY` | *(empty)* | Required for hosted APIs (`openai`, `anthropic`, `gemini`, `groq`, `openrouter`) |
+| `LLM_API_KEY` | *(empty)* | Required for hosted APIs (`openai`, `anthropic`, `gemini`, `groq`, `openrouter`, `deepseek`) |
 | `LLM_STRUCTURED_MODE` | `json` | Instructor mode: `json` (safest locally) · `tools` · `md_json` |
 | `EMBEDDING_PROVIDER` | `auto` | `auto` → ollama → sentence-transformers → hash |
 | `EMBEDDING_MODEL` | `nomic-embed-text` | |

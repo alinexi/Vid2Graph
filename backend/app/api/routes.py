@@ -54,7 +54,7 @@ def health(db: Database = Depends(db_dep)) -> HealthResponse:
 @router.get("/settings")
 def get_settings() -> dict:
     return {"settings": runtime_settings.current().masked(),
-            "providers": ["ollama", "lmstudio", "vllm", "openai", "anthropic", "gemini", "groq", "openrouter",
+            "providers": ["ollama", "lmstudio", "vllm", "openai", "anthropic", "gemini", "groq", "openrouter", "deepseek",
                          "openai_compatible", "mock"],
             "whisper_backends": ["auto", "faster-whisper", "mlx", "whisper.cpp", "none"],
             "embedding_providers": ["auto", "ollama", "sentence-transformers", "openai", "hash"]}

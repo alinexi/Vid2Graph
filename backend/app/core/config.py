@@ -13,7 +13,7 @@ from typing import Literal
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-Provider = Literal["ollama", "lmstudio", "vllm", "openai", "anthropic", "gemini", "groq", "openrouter",
+Provider = Literal["ollama", "lmstudio", "vllm", "openai", "anthropic", "gemini", "groq", "openrouter", "deepseek",
                    "openai_compatible", "mock"]
 EmbeddingProvider = Literal["auto", "ollama", "sentence-transformers", "openai", "hash"]
 WhisperBackend = Literal["auto", "faster-whisper", "mlx", "whisper.cpp", "none"]

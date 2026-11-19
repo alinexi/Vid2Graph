@@ -14,6 +14,7 @@ const PRESETS: Record<string, { base: string; model: string; hint: string }> = {
   anthropic: { base: "", model: "claude-haiku-5-5", hint: "Hosted Claude API — paste your Anthropic API key below. Base URL is not needed." },
   gemini: { base: "", model: "gemini-2.5-flash", hint: "Google Gemini API — paste your API key below. Base URL is not needed." },
   groq: { base: "", model: "llama-3.3-70b-versatile", hint: "Groq API — paste your API key below. Base URL is not needed." },
+  deepseek: { base: "", model: "deepseek-chat", hint: "DeepSeek API — paste your key from platform.deepseek.com. Base URL is not needed." },
   openrouter: { base: "", model: "openai/gpt-4o-mini", hint: "OpenRouter — paste your key; use any model id from openrouter.ai/models." },
   openai_compatible: { base: "http://localhost:8080/v1", model: "default", hint: "Any OpenAI-compatible endpoint (llama.cpp server, Groq, OpenRouter, …)." },
   mock: { base: "", model: "mock", hint: "No model at all — deterministic heuristics for trying the UI." },

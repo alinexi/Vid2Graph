@@ -67,7 +67,7 @@ def _coerce(model: Type[T], data: Any) -> T:
 
 
 # provider -> LiteLLM model prefix for hosted APIs that only need an API key
-HOSTED_PREFIX = {"anthropic": "anthropic/", "gemini": "gemini/", "groq": "groq/", "openrouter": "openrouter/"}
+HOSTED_PREFIX = {"anthropic": "anthropic/", "gemini": "gemini/", "groq": "groq/", "deepseek": "deepseek/", "openrouter": "openrouter/"}
 
 
 class LLMClient:
