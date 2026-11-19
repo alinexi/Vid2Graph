@@ -10,7 +10,11 @@ const PRESETS: Record<string, { base: string; model: string; hint: string }> = {
   ollama: { base: "http://localhost:11434", model: "qwen2.5:7b", hint: "ollama pull qwen2.5:7b && ollama pull nomic-embed-text" },
   lmstudio: { base: "http://localhost:1234/v1", model: "qwen2.5-7b-instruct", hint: "Start the LM Studio local server and load a model." },
   vllm: { base: "http://localhost:8000/v1", model: "Qwen/Qwen2.5-7B-Instruct", hint: "vllm serve <model> --port 8000" },
-  openai: { base: "https://api.openai.com/v1", model: "gpt-4o-mini", hint: "Optional cloud model — requires an API key." },
+  openai: { base: "https://api.openai.com/v1", model: "gpt-4o-mini", hint: "Hosted OpenAI API — paste your API key below." },
+  anthropic: { base: "", model: "claude-haiku-5-5", hint: "Hosted Claude API — paste your Anthropic API key below. Base URL is not needed." },
+  gemini: { base: "", model: "gemini-2.5-flash", hint: "Google Gemini API — paste your API key below. Base URL is not needed." },
+  groq: { base: "", model: "llama-3.3-70b-versatile", hint: "Groq API — paste your API key below. Base URL is not needed." },
+  openrouter: { base: "", model: "openai/gpt-4o-mini", hint: "OpenRouter — paste your key; use any model id from openrouter.ai/models." },
   openai_compatible: { base: "http://localhost:8080/v1", model: "default", hint: "Any OpenAI-compatible endpoint (llama.cpp server, Groq, OpenRouter, …)." },
   mock: { base: "", model: "mock", hint: "No model at all — deterministic heuristics for trying the UI." },
 };

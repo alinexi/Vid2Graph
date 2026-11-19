@@ -54,7 +54,8 @@ def health(db: Database = Depends(db_dep)) -> HealthResponse:
 @router.get("/settings")
 def get_settings() -> dict:
     return {"settings": runtime_settings.current().masked(),
-            "providers": ["ollama", "lmstudio", "vllm", "openai", "openai_compatible", "mock"],
+            "providers": ["ollama", "lmstudio", "vllm", "openai", "anthropic", "gemini", "groq", "openrouter",
+                         "openai_compatible", "mock"],
             "whisper_backends": ["auto", "faster-whisper", "mlx", "whisper.cpp", "none"],
             "embedding_providers": ["auto", "ollama", "sentence-transformers", "openai", "hash"]}
 
@@ -96,6 +97,14 @@ async def ingest(
         raise HTTPException(400, "Provide a YouTube URL or upload a file")
     if url and not is_youtube(url):
         raise HTTPException(400, "Only YouTube URLs are supported for now. Upload a media or subtitle file instead.")
+
+    # Fail fast with an actionable message instead of dying at 65% of the job.
+    probe = get_llm().probe()
+    if not probe["reachable"] or probe.get("model_available") is False:
+        raise HTTPException(
+            400, f"LLM is not ready ({probe['provider']}:{probe['model']}): {probe['detail']}. "
+                 "Fix it in Settings (e.g. pick a hosted provider and paste an API key, or start Ollama), "
+                 "or choose the 'mock' provider to try the app without a model.")
 
     graph_id = new_id("g_")
     graph = Graph(id=graph_id, title=(title or "").strip() or graph_id, language=language,
