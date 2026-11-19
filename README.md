@@ -132,6 +132,18 @@ cd frontend && npm install && npm run dev
 
 Set `VID2GRAPH_LLM_PROVIDER=mock` in `.env` (or pick **mock** in the settings modal). The full pipeline runs on deterministic heuristics, the demo graph is pre-seeded, and you can explore every feature of the UI before downloading a single model.
 
+### Option D: Use a hosted API instead of a local model
+
+No GPU or Ollama needed. Set the provider, model and key in `.env` (or in the settings modal, no restart):
+
+```bash
+VID2GRAPH_LLM_PROVIDER=anthropic   # or openai | gemini | groq | openrouter | deepseek
+VID2GRAPH_LLM_MODEL=claude-haiku-5-5
+VID2GRAPH_LLM_API_KEY=sk-ant-...
+```
+
+Any other OpenAI-compatible service works with `openai_compatible` plus `LLM_BASE_URL`. Embeddings fall back to the built-in hash embedder when Ollama is absent; for better node merging set `VID2GRAPH_EMBEDDING_PROVIDER=openai` with an embeddings key. Note that with a hosted provider your transcript text is sent to that provider.
+
 ### No GPU?
 
 - **YouTube captions** are pulled first. Most lectures and podcasts have them, so Whisper never runs.
@@ -258,10 +270,10 @@ Copy `.env.example` to `.env`. All keys are prefixed `VID2GRAPH_` and can also b
 
 | Key | Default | Notes |
 |---|---|---|
-| `LLM_PROVIDER` | `ollama` | `ollama` · `lmstudio` · `vllm` · `openai` · `openai_compatible` · `mock` |
+| `LLM_PROVIDER` | `ollama` | `ollama` · `lmstudio` · `vllm` · `openai` · `anthropic` · `gemini` · `groq` · `openrouter` · `deepseek` · `openai_compatible` · `mock` |
 | `LLM_MODEL` | `qwen2.5:7b` | Model name as the provider knows it |
 | `LLM_BASE_URL` | `http://localhost:11434` | LM Studio `http://localhost:1234/v1`, vLLM `http://localhost:8000/v1` |
-| `LLM_API_KEY` | *(empty)* | Only for hosted endpoints |
+| `LLM_API_KEY` | *(empty)* | Required for hosted APIs (`openai`, `anthropic`, `gemini`, `groq`, `openrouter`, `deepseek`) |
 | `LLM_STRUCTURED_MODE` | `json` | Instructor mode: `json` (safest locally) · `tools` · `md_json` |
 | `EMBEDDING_PROVIDER` | `auto` | `auto` → ollama → sentence-transformers → hash |
 | `EMBEDDING_MODEL` | `nomic-embed-text` | |

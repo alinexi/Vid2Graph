@@ -66,6 +66,10 @@ def _coerce(model: Type[T], data: Any) -> T:
     return model.model_validate(data)
 
 
+# provider -> LiteLLM model prefix for hosted APIs that only need an API key
+HOSTED_PREFIX = {"anthropic": "anthropic/", "gemini": "gemini/", "groq": "groq/", "deepseek": "deepseek/", "openrouter": "openrouter/"}
+
+
 class LLMClient:
     def __init__(self, ms: Optional[ModelSettings] = None):
         self.ms = ms or runtime_settings.current()
@@ -94,6 +98,10 @@ class LLMClient:
                 kw["api_base"] = base if base.endswith("/v1") else base + "/v1"
             model = ms.llm_model if "/" in ms.llm_model else f"openai/{ms.llm_model}"
             return model, kw
+        if p in HOSTED_PREFIX:
+            # Hosted APIs: LiteLLM knows their endpoints, so only the key (and model) are needed.
+            model = ms.llm_model if ms.llm_model.startswith(HOSTED_PREFIX[p]) else f"{HOSTED_PREFIX[p]}{ms.llm_model}"
+            return model, {"api_key": ms.llm_api_key}
         raise LLMError(f"Unknown provider {p}")
 
     @property
@@ -196,7 +204,7 @@ class LLMClient:
                 info.update(reachable=True, detail="model pulled" if has else
                             f"Ollama reachable but '{self.ms.llm_model}' not pulled — run: ollama pull {self.ms.llm_model}")
                 info["model_available"] = has
-            elif self.provider == "openai":
+            elif self.provider == "openai" or self.provider in HOSTED_PREFIX:
                 info.update(reachable=bool(self.ms.llm_api_key), detail="api key set" if self.ms.llm_api_key else "missing API key")
             else:
                 url = base if base.endswith("/v1") else base + "/v1"
